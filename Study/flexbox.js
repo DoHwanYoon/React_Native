@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  View,
-  Text,
+    StyleSheet,
+    View,
+    Text,
 } from 'react-native';
 
 const App: () => React$Node = () => {
-  return (
-    <>
-        <View style={styles.container}>
-            <View style={styles.left}></View>
-            <View style={styles.right}>
-                <View style={styles.rightTop}></View>
-                <View style={styles.rightBottom}></View>
+    return (
+        <>
+            <View style={styles.container}>
+                <View style={styles.left}></View>
+                <View style={styles.right}>
+                    <View style={styles.rightTop}></View>
+                    <View style={styles.rightBottom}></View>
+                </View>
             </View>
-        </View>
-    </>
-  );
+        </>
+    );
 };
 
-class main extends Component{
-    render(){
-        return(
+class main extends Component {
+    render() {
+        return (
             <View style={styles.container}>
                 <View style={styles.Nav}>
                     <Text>NavBar</Text>
@@ -41,11 +41,11 @@ class main extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         flexDirection: 'column',
     },
     Nav: {
-        flex:1,
+        flex: 1,
         //height: 80,
         justifyContent: 'center', //수직정렬 위치
         alignItems: 'center', //수평정렬 위치
@@ -59,15 +59,15 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'red',
     },
-    right:{
-        flex:1
+    right: {
+        flex: 1
     },
     rightTop: {
-        flex:1,
+        flex: 1,
         backgroundColor: 'blue',
     },
     rightBottom: {
-        flex:1,
+        flex: 1,
         backgroundColor: 'yellow',
     }
 

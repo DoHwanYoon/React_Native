@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  View,
-  Text,
+    StyleSheet,
+    View,
+    Text,
 } from 'react-native';
 
-class NavBar extends Component{
-    render(){
-        return(
+class NavBar extends Component {
+    render() {
+        return (
             <View style={styles.nav}>
                 <Text>NavBar</Text>
             </View>
@@ -16,9 +16,9 @@ class NavBar extends Component{
     }
 }
 
-class NavBar2 extends Component{
-    render(){
-        return(
+class NavBar2 extends Component {
+    render() {
+        return (
             <View style={styles.nav}>
                 <Text>NavBar2</Text>
             </View>
@@ -26,9 +26,9 @@ class NavBar2 extends Component{
     }
 }
 
-class Body extends Component{
-    render(){
-        return(
+class Body extends Component {
+    render() {
+        return (
             <View style={styles.body}>
                 <View style={styles.left}></View>
                 <View style={styles.right}>
@@ -40,9 +40,9 @@ class Body extends Component{
     }
 }
 
-class main extends Component{
-    render(){
-        return(
+class main extends Component {
+    render() {
+        return (
             <View style={styles.container}>
                 <NavBar />
                 <Body />
@@ -53,7 +53,7 @@ class main extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
         flexDirection: 'column',
     },
     nav: {
@@ -71,15 +71,15 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'red',
     },
-    right:{
-        flex:1
+    right: {
+        flex: 1
     },
     rightTop: {
-        flex:1,
+        flex: 1,
         backgroundColor: 'blue',
     },
     rightBottom: {
-        flex:1,
+        flex: 1,
         backgroundColor: 'yellow',
     }
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import {
-  StyleSheet,
-  View,
-  Text,
+    StyleSheet,
+    View,
+    Text,
 } from 'react-native';
 
-export default class NavBar extends Component{
-    render(){
-        return(
+export default class NavBar extends Component {
+    render() {
+        return (
             <View style={styles.NavBar}>
                 <Text style={styles.navBarText}>More</Text>
             </View>

@@ -1,15 +1,54 @@
 import React, { Component } from 'react';
-
 import {
+    AppRegistry,
     StyleSheet,
-    View,
     Text,
-    Image,
+    View,
     TextInput,
-    TouchableOpacity,
+    TouchableOpacity
 } from 'react-native';
 
-//console.log('asd')
+console.log('check')
+
+
+class TodoItem extends Component {
+    completeTodo(index) {
+        let todos = this.state.todos
+        todos[index].complete = !todos[index].complete
+        this.setState({
+            todos: todos,
+        })
+    }
+
+    deleteTodo(index) {
+        let todos = this.state.todos
+        todos.splice(index, 1)
+        this.setState({
+            todos: todos,
+        })
+    }
+
+
+    render() {
+        let todoItem = this.props.item
+        console.log(this.props)
+        let index = this.props.index
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={todoItem.complete ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }}>
+                    {todoItem.context}
+                </Text>
+                <TouchableOpacity onPress={this.completeTodo.bind(this.props.todoApp, index)}>
+                    <Text>{todoItem.complete ? "---complete" : "---incomplete"}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.deleteTodo.bind(this.props.todoApp, index)}>
+                    <Text>     delete </Text>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+}
+
 class main extends Component {
     componentWillMount() {
         this.setState({
@@ -17,6 +56,7 @@ class main extends Component {
             todos: [],
         })
     }
+
     addTodo() {
         let todoItem = {
             context: this.state.inputText,
@@ -29,20 +69,7 @@ class main extends Component {
             todos: todos,
         })
     }
-    completeTodo(index) {
-        let todos = this.state.todos
-        todos[index].complete = !todos[index].complete
-        this.setState({
-            todos: todos,
-        })
-    }
-    deleteTodo(index) {
-        let todos = this.state.todos
-        todos.splice(index, 1) // index번째 값부터 1개를 추출
-        this.setState({
-            todos: todos,
-        })
-    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -56,23 +83,14 @@ class main extends Component {
                 <TouchableOpacity onPress={this.addTodo.bind(this)}>
                     <Text>
                         add Todo
-              </Text>
+          </Text>
                 </TouchableOpacity>
                 {
                     this.state.todos.map((todoItem, index) => {
+                        console.log(todoItem)
+                        console.log(index)
                         return (
-                            <View key={index} style={{ flexDirection: 'row' }}>
-                                <Text style={todoItem.complete ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }}>
-                                    {todoItem.context}
-                                </Text>
-                                <TouchableOpacity onPress={this.completeTodo.bind(this, index)}>
-                                    <Text>{todoItem.complete ? "---complete" : "---incomplete"}</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={this.deleteTodo.bind(this, index)}>
-                                    <Text>    --delete  </Text>
-                                </TouchableOpacity>
-                            </View>
-
+                            <TodoItem item={todoItem} key={index} index={index} todoApp={this} />
                         )
                     })
                 }

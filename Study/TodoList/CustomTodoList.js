@@ -80,24 +80,35 @@ class main extends Component {
                     </View>
                 </View>
                 <View style={styles.TodosContainer}>
-                    <Text>TodoList</Text>
-                    {
-                        this.state.todos.map((todoItem, index) => {
-                            return (
-                                <View key={index} style={{ height:30,flexDirection: 'row', justifyContent:'center', alignItems:'center'}}>
-                                    <Text style={todoItem.complete ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }}>
-                                        {todoItem.context}
-                                    </Text>
-                                    <TouchableOpacity onPress={this.completeTodo.bind(this, index)}>
-                                        <Text>{todoItem.complete ? "   완료" : "   진행중"}</Text>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity onPress={this.deleteTodo.bind(this, index)}>
-                                        <Text>       삭제  </Text>
-                                    </TouchableOpacity>
-                                </View>
-                            )
-                        })
-                    }
+                    <View style={{ flex: 2, borderWidth: 0.5 }}>
+                        {
+                            this.state.todos.map((todoItem, index) => {
+                                return (
+                                    <View key={index} style={{ height: 30, justifyContent: "flex-start", alignItems: 'flex-start' }}>
+                                        <Text style={todoItem.complete ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }}>
+                                            {todoItem.context}
+                                        </Text>
+                                    </View>
+                                )
+                            })
+                        }
+                    </View>
+                    <View style={{ flex: 1, borderWidth: 0.5 }}>
+                        {
+                            this.state.todos.map((todoItem, index) => {
+                                return (
+                                    <View key={index} style={{ height: 30, flexDirection: 'row', justifyContent: "flex-start", alignItems: 'flex-start' }}>
+                                        <TouchableOpacity onPress={this.completeTodo.bind(this, index)}>
+                                            <Text>{todoItem.complete ? "   완료" : "   진행중"}</Text>
+                                        </TouchableOpacity>
+                                        <TouchableOpacity onPress={this.deleteTodo.bind(this, index)}>
+                                            <Text>       삭제  </Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                )
+                            })
+                        }
+                    </View>
                 </View>
             </View>
         )
@@ -116,7 +127,7 @@ const styles = StyleSheet.create({
     },
     TodosContainer: {
         flex: 1,
-
+        flexDirection: 'row',
         borderWidth: 0.5,
     },
     Todos: {

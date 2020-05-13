@@ -86,7 +86,7 @@ class main extends Component {
                                 return (
                                     <View key={index} style={{ height: 30, justifyContent: "flex-start", alignItems: 'flex-start' }}>
                                         <Text style={todoItem.complete ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }}>
-                                            {todoItem.context}
+                                            { todoItem.context }
                                         </Text>
                                     </View>
                                 )
